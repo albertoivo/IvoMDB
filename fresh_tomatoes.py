@@ -113,9 +113,12 @@ main_page_content = '''
           </div>
         </div>
       </div>
-    </div>
-    <div class="container">
-      {movie_tiles}
+
+        <fieldset>
+            <legend>Movies & TV Shows</legend>
+            {} {}
+        </fieldset>
+
     </div>
   </body>
 </html>
@@ -127,6 +130,13 @@ movie_tile_content = '''
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
     <img src="{poster_image_url}" width="220" height="342">
     <h2>{movie_title}</h2>
+</div>
+'''
+
+show_tile_content = '''
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+    <img src="{poster_image_url}" width="220" height="342">
+    <h2>{show_title}</h2>
 </div>
 '''
 
@@ -152,16 +162,38 @@ def create_movie_tiles_content(movies):
     return content
 
 
-def open_movies_page(movies):
+def create_tvshow_tiles_content(shows):
+    # The HTML content for this section of the page
+    content = ''
+    for show in shows:
+        # Extract the youtube ID from the url
+        youtube_id_match = re.search(
+            r'(?<=v=)[^&#]+', show.trailer)
+        youtube_id_match = youtube_id_match or re.search(
+            r'(?<=be/)[^&#]+', show.trailer)
+        trailer_youtube_id = (youtube_id_match.group(0) if youtube_id_match
+                              else None)
+
+        # Append the tile for the tv show with its content filled in
+        content += show_tile_content.format(
+            show_title=show.title,
+            poster_image_url=show.poster,
+            trailer_youtube_id=trailer_youtube_id
+        )
+    return content
+
+
+def open_page(movies, shows):
     # Create or overwrite the output file
     output_file = open('fresh_tomatoes.html', 'w')
 
     # Replace the movie tiles placeholder generated content
     rendered_content = main_page_content.format(
-        movie_tiles=create_movie_tiles_content(movies))
+        create_movie_tiles_content(movies), create_tvshow_tiles_content(shows))
 
     # Output the file
-    output_file.write(main_page_head + rendered_content)
+    newFile = main_page_head + rendered_content
+    output_file.write(newFile)
     output_file.close()
 
     # open the output file in the browser (in a new tab, if possible)
