@@ -6,7 +6,7 @@
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
 
-A simple and responsive website for your favorite movies and TV shows.
+A simple and responsive website for random movies and TV shows.
 
 ## Table of contents
 
@@ -18,11 +18,11 @@ A simple and responsive website for your favorite movies and TV shows.
 
 ## Quick start
 
-fork
-clone
-cd ...
-`python main.py`
-Voilà - Your browser will open automatically.
+1. Fork it
+2. Clone it
+3. `cd IvoMDB`
+4. `python main.py`
+5. _Voilà!_ Your browser will open automatically
 
 ## Developed with
 
