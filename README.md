@@ -10,15 +10,23 @@ A simple and responsive website for your favorite movies and TV shows.
 
 ## Table of contents
 
+-   [Quick start](#quick-start)
+-   [Developed with](#developed-with)
+-   [Contributing](#contributing)
+-   [Author](#author)
+-   [License](#license)
+
 ## Quick start
 
-## Prerequisites
-
-## Getting Started
+fork
+clone
+cd ...
+`python main.py`
+Voilà - Your browser will open automatically.
 
 ## Developed with
 
-* [Python 3](https://www.python.org/)
+* [Python 2.7.10](https://www.python.org/)
 
 ## Contributing
 
