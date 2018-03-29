@@ -4,3 +4,4 @@ fresh_tomatoes.html
 movie.pyc
 tvshow.pyc
 video.pyc
+*.pyc
