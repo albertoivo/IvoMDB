@@ -45,6 +45,14 @@ main_page_head = '''
             background-color: #EEE;
             cursor: pointer;
         }
+        .show-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .show-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
         .scale-media {
             padding-bottom: 56.25%;
             position: relative;
@@ -113,12 +121,14 @@ main_page_content = '''
           </div>
         </div>
       </div>
-
         <fieldset>
-            <legend>Movies & TV Shows</legend>
-            {} {}
+            <legend>Movies</legend>
+            {}
         </fieldset>
-
+        <fieldset>
+            <legend>TV Shows</legend>
+            {}
+        </fieldset>
     </div>
   </body>
 </html>
@@ -134,7 +144,7 @@ movie_tile_content = '''
 '''
 
 show_tile_content = '''
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 show-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
     <img src="{poster_image_url}" width="220" height="342">
     <h2>{show_title}</h2>
 </div>

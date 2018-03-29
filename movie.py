@@ -1,4 +1,3 @@
-import webbrowser
 from video import Video
 
 
