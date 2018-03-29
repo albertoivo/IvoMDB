@@ -1,5 +1,7 @@
 import webbrowser
 
+# Parent class for movie and tv shows
+
 
 class Video():
     def __init__(self, title, storyline, poster, trailer):
